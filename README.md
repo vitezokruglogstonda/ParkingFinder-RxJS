@@ -1,2 +1,2 @@
-# ParkingFinder-RxJS-
+# ParkingFinder-RxJS
 WebAppDevelopment (faculty project)
