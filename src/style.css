@@ -7,6 +7,37 @@ body{
     align-items: stretch;
 }
 
+label{
+    width: 30%;
+    text-align: center;
+    line-height: 3.5;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #e25822;
+    position: relative;
+    left: 10%;
+    top: 17%;
+}
+
+input{
+    width: 77%;
+    height: 25%;
+    position: relative;
+    left: 10%;
+    top: 20%;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: #e25822;
+    text-align: center;
+    line-height: 3.5;
+    font-weight: 600;
+    font-size: 200%;
+    color: black;
+    border:none;
+    outline-width: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
 .footer{
     display: flex;    
     background-color: #696969;
@@ -31,22 +62,21 @@ body{
 
 .centerDiv{
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
+    /* justify-content: center; */
     align-items: center;
+    flex-wrap: wrap;
     width: 60%;
 }
 
 .optionsDiv{
     display: flex;
     width: 100%;
-    height: 55px;
+    height: 60px;
     flex-direction: column;
     position: relative;
     top: 10%;
-}
-
-.content{
-    width: 100%;
+    order: 1;
 }
 
 .tabsDiv{        
@@ -54,6 +84,7 @@ body{
     flex-direction: row;
     position: relative;
     left: 10px;
+    align-items: flex-end;
 }
 
 .hrLine{
@@ -80,4 +111,23 @@ body{
     background-color: #c0c0c0;
     color: #e25822;
     text-transform: uppercase;
+    height: 55px;
+}
+
+.contentDiv{
+    width: 100%;
+    order: 2;
+    height: 70%;
+    position: relative;
+    top: 10%;
+}
+
+.parkingSpotBox{
+    display:flex;
+    width: 100%;
+    height: 40%;
+    background-color: #c0c0c0;
+    border-radius: 20px;
+    flex-direction: column;
+    /* justify-content: center; */
 }

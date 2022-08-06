@@ -1,4 +1,6 @@
-import {state} from "./clientState"
+import {state} from "./models/clientState";
+import { checkCode } from "./controller/observable";
+import { environments } from "./environments";
 
 export function draw(container:HTMLElement){
     const mainDiv: HTMLDivElement = document.createElement("div");
@@ -55,9 +57,9 @@ export function draw(container:HTMLElement){
 
 function changeTabTo(newTab: string){
     if(state.currentTab !== newTab){
-        let currentTabHtmlElement = document.getElementById(state.currentTab);
+        let currentTabHtmlElement: HTMLElement = document.getElementById(state.currentTab);
         currentTabHtmlElement.classList.remove("selectedTab");
-        let nextTabHtmlElement = document.getElementById(newTab);
+        let nextTabHtmlElement: HTMLElement = document.getElementById(newTab);
         nextTabHtmlElement.classList.add("selectedTab");
         state.currentTab = newTab;
         if(state.currentTab === "finder-tab"){
@@ -69,13 +71,39 @@ function changeTabTo(newTab: string){
 }
 
 function drawFinderContent(){
-    let contentDiv = document.getElementsByClassName("contentDiv");
-
+    let contentDiv = document.getElementsByClassName("contentDiv")[0];
+    
+    
 
 }
 
 function drawCheckerContent(){
-    let contentDiv = document.getElementsByClassName("contentDiv");
+    let contentDiv = document.getElementsByClassName("contentDiv")[0];
 
-    
+    contentDiv.childNodes.forEach((x)=>{
+        contentDiv.removeChild(x);
+    });
+
+    let parkingSpotBox: HTMLDivElement = document.createElement("div");
+    parkingSpotBox.classList.add("parkingSpotBox");
+    contentDiv.appendChild(parkingSpotBox);
+    if(!state.parked){
+        let label: HTMLLabelElement = document.createElement("label");
+        label.innerHTML = "Enter your code here:";
+        parkingSpotBox.appendChild(label);
+        let inputHashField: HTMLInputElement = document.createElement("input");
+        inputHashField.maxLength = environments.codeLength;
+        parkingSpotBox.appendChild(inputHashField);
+        checkCode(inputHashField);
+        //applyButton.addEventListener("click", ()=>{})
+            //funkcija se inportuje iz 2. fajla
+            //mora da pita da li je kod validan (ovde se obraca serveru da izvuce iz baze)
+            //ako jeste onda funkcija poziva samu sebe (da iscrta sve ponovo)
+    }else{
+     
+        
+
+
+
+    }
 }
