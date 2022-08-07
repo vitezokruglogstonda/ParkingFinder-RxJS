@@ -1,7 +1,7 @@
 import {environments} from "../environments";
 import { ParkingSpot } from "./ParkingSpot";
 
-export let state: clientState = null;
+let state: clientState = undefined;
 
 class clientState{
     currentTab: string;
@@ -16,10 +16,10 @@ class clientState{
 }
 
 export function createClient(): clientState{
-    if(this.state == null){
-        this.state = new clientState(environments.initialTab);
+    if(state === undefined){
+        state = new clientState(environments.initialTab);
     }    
-    return this.state;
+    return state;
 }
 
 //export const state = new clientState(environments.initialTab);

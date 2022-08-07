@@ -1,6 +1,8 @@
-import {state} from "./models/clientState";
+import {createClient} from "./models/clientState";
 import { checkCode } from "./controller/observable";
 import { environments } from "./environments";
+
+const state = createClient();
 
 export function draw(container:HTMLElement){
     const mainDiv: HTMLDivElement = document.createElement("div");
@@ -76,7 +78,9 @@ function changeTabTo(newTab: string){
 function drawFinderContent(){
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
     
-    
+    contentDiv.childNodes.forEach((x)=>{
+        contentDiv.removeChild(x);
+    });
 
 }
 
