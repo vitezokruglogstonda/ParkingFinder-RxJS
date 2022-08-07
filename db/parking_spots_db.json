@@ -1,19 +1,848 @@
 {
-  "posts": [
+  "cities":[
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "comments": [
+      "city":"Belgrade",
+      "codeName":"bg",
+      "districts":[
+        {
+          "districtName": "Vracar",
+          "codeName": "01",
+          "garages":[
+            {
+              "id":"01",
+              "zone":1,
+              "tariff": 3,
+              "penaltyIndex": 1.5,
+              "maxTime": 3,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id":"02",
+              "zone":3,
+              "tariff": 1,
+              "penaltyIndex": 1,
+              "maxTime": null,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "districtName": "Dorcol",
+          "codeName": "02",
+          "garages":[
+            {
+              "id":"01",
+              "zone":2,
+              "tariff": 2,
+              "penaltyIndex": 1.2,
+              "maxTime": 5,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id":"02",
+              "zone":3,
+              "tariff": 1,
+              "penaltyIndex": 1,
+              "maxTime": null,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "city":"Nis",
+      "codeName":"ni",
+      "districts":[
+        {
+          "districtName": "Cair",
+          "codeName": "01",
+          "garages":[
+            {
+              "id":"01",
+              "zone":1,
+              "tariff": 2,
+              "penaltyIndex": 1.1,
+              "maxTime": 6,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id":"02",
+              "zone":2,
+              "tariff": 1,
+              "penaltyIndex": 1,
+              "maxTime": null,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "districtName": "Pantelej",
+          "codeName": "02",
+          "garages":[
+            {
+              "id":"01",
+              "zone":3,
+              "tariff": 1,
+              "penaltyIndex": 1,
+              "maxTime": null,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id":"02",
+              "zone":3,
+              "tariff": 1,
+              "penaltyIndex": 1,
+              "maxTime": null,
+              "locationX": 1,
+              "locationY": 1,
+              "floors":[
+                {
+                  "codeName":"a",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"b",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                },
+                {
+                  "codeName":"c",
+                  "spots":[
+                    {
+                      "id": "01",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "02",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "03",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "04",
+                      "occupied":false,
+                      "timeOccupied": null
+                    },
+                    {
+                      "id": "05",
+                      "occupied":false,
+                      "timeOccupied": null
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

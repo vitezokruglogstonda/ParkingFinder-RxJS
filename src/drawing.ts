@@ -9,6 +9,9 @@ export function draw(container:HTMLElement){
 
     const footerDiv :HTMLDivElement = document.createElement("div");
     footerDiv.classList.add("footer");
+    const footerText : HTMLElement = document.createElement("p");
+    footerText.innerHTML = environments.footer;
+    footerDiv.appendChild(footerText);
     container.appendChild(footerDiv);
 
     const centerDiv: HTMLDivElement = document.createElement("div");
