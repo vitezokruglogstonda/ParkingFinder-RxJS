@@ -1,5 +1,5 @@
 import {createClient} from "./models/clientState";
-import { checkCode } from "./controller/observable";
+import { calculate, checkCode, logOut } from "./controller/observable";
 import { environments } from "./environments";
 
 const state = createClient();
@@ -84,7 +84,7 @@ function drawFinderContent(){
 
 }
 
-function drawCheckerContent(){
+export function drawCheckerContent(){
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
 
     contentDiv.childNodes.forEach((x)=>{
@@ -93,6 +93,9 @@ function drawCheckerContent(){
 
     let parkingSpotBox: HTMLDivElement = document.createElement("div");
     parkingSpotBox.classList.add("parkingSpotBox");
+    if(state.parked){
+        parkingSpotBox.classList.add("parkingSpotBoxAddition");
+    }
     contentDiv.appendChild(parkingSpotBox);
     if(!state.parked){
         let label: HTMLLabelElement = document.createElement("label");
@@ -102,15 +105,44 @@ function drawCheckerContent(){
         inputHashField.maxLength = environments.codeLength;
         parkingSpotBox.appendChild(inputHashField);
         checkCode(inputHashField);
-        //applyButton.addEventListener("click", ()=>{})
-            //funkcija se inportuje iz 2. fajla
-            //mora da pita da li je kod validan (ovde se obraca serveru da izvuce iz baze)
-            //ako jeste onda funkcija poziva samu sebe (da iscrta sve ponovo)
     }else{
-     
+        let infoBox: HTMLDivElement = document.createElement("div");
+        infoBox.classList.add("infoBox");
+
         
+        let label: HTMLLabelElement = document.createElement("label");
+        label.setAttribute("id","timeSpentLabel");
+        label.classList.add("infoLabel");
+        infoBox.appendChild(label);
+
+        label = document.createElement("label");
+        label.setAttribute("id","priceLabel");
+        label.classList.add("infoLabel");
+        infoBox.appendChild(label);
 
 
+        parkingSpotBox.appendChild(infoBox);
+        let logOutButton : HTMLButtonElement = document.createElement("button");
+        logOutButton.innerHTML = "Pay";        
+        parkingSpotBox.appendChild(logOutButton);
 
+        let sub = calculate();
+
+        logOutButton.addEventListener("click", (ev)=>{
+            logOut(sub);
+        });
     }
+}
+
+export function showCurrentState(input: [string,number,boolean]){
+    let duration = input[0];
+    let price = input[1];
+    let labelTime : HTMLElement= document.getElementById("timeSpentLabel");
+    let labelPrice : HTMLElement= document.getElementById("priceLabel");
+    if(input[2]){
+        labelTime.classList.add("infoLabelPenalty");
+        labelPrice.classList.add("infoLabelPenalty");
+    }
+    labelTime.innerHTML = `${environments.labelTimeString}${duration}`;
+    labelPrice.innerHTML = `${price} ${environments.currency}`;
 }
