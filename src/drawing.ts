@@ -108,7 +108,6 @@ export function drawCheckerContent(){
     }else{
         let infoBox: HTMLDivElement = document.createElement("div");
         infoBox.classList.add("infoBox");
-
         
         let label: HTMLLabelElement = document.createElement("label");
         label.setAttribute("id","timeSpentLabel");
@@ -119,7 +118,6 @@ export function drawCheckerContent(){
         label.setAttribute("id","priceLabel");
         label.classList.add("infoLabel");
         infoBox.appendChild(label);
-
 
         parkingSpotBox.appendChild(infoBox);
         let logOutButton : HTMLButtonElement = document.createElement("button");
@@ -134,15 +132,16 @@ export function drawCheckerContent(){
     }
 }
 
-export function showCurrentState(input: [string,number,boolean]){
-    let duration = input[0];
-    let price = input[1];
+export function showCurrentState(output: [string,number,boolean]){
+    let state = createClient();    
+    let duration = output[0];
+    state.price = output[1];
     let labelTime : HTMLElement= document.getElementById("timeSpentLabel");
     let labelPrice : HTMLElement= document.getElementById("priceLabel");
-    if(input[2]){
+    if(output[2]){
         labelTime.classList.add("infoLabelPenalty");
         labelPrice.classList.add("infoLabelPenalty");
     }
     labelTime.innerHTML = `${environments.labelTimeString}${duration}`;
-    labelPrice.innerHTML = `${price} ${environments.currency}`;
+    labelPrice.innerHTML = `${state.price} ${environments.currency}`;
 }

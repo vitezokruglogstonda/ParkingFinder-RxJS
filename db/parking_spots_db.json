@@ -758,14 +758,14 @@
     {
       "id":"ni0201c03",
       "city":"Nis",
-      "zone":3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
+      "zone":1,
+      "tariff": 3,
+      "penaltyIndex": 10,
+      "maxTime": 300,
       "locationX": 1,
       "locationY": 1,
       "occupied":true,
-      "timeOccupied": "2:15:0"
+      "timeOccupied": "16:25:0"
     }
   ]
 }

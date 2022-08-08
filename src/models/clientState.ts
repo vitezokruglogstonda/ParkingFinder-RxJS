@@ -7,6 +7,7 @@ class clientState{
     currentTab: string;
     parked:boolean;
     parkingSpot: ParkingSpot;
+    price: number;
 
     constructor(currTab:string){
         this.currentTab = currTab;

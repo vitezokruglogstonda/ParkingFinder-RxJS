@@ -7,5 +7,6 @@ export const environments = {
     labelTimeString:"Duration: ",
     labelPriceString:"Price: ",
     pricePerSecond: 0.5,
-    currency: "RSD"
+    currency: "RSD",
+    paymentInfo: "Parking time ended, your vehicle is on the way. Thank you for using our services.\nEstimated price: "
 };
