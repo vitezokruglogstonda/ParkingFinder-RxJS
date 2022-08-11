@@ -8,11 +8,14 @@ body{
 }
 
 label{
-    width: 30%;
     text-align: center;
     line-height: 3.5;
     font-weight: 600;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;    
+}
+
+.enterCodeLabel{
+    width: 30%;
     color: #e25822;
     position: relative;
     left: 8%;
@@ -153,7 +156,8 @@ p{
     display: flex;
     position:relative;
     /* flex-grow: 1; */
-    flex-basis: 50%;
+    flex-wrap: wrap;
+    flex-basis: 60%;
     width: 90%;
     height: 70%;
     background-color: #708090;
@@ -174,9 +178,18 @@ button{
 }
 
 .infoLabel{
-    
+    color: white;
+    flex-grow: 1;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .infoLabelPenalty{
-    color: red;
+    color: #fd0e35;
+}
+
+#remainingTimeLabel{
+    width: 100%;
 }

@@ -1,4 +1,5 @@
 export class ParkingSpot{
+    id: number = undefined
     parkingHash: string = undefined;
     city: string = undefined;
     timeOccupied: string = undefined; //dateTime?
@@ -10,7 +11,8 @@ export class ParkingSpot{
     locationX: number = undefined;
     locationY: number = undefined;
 
-    constructor(_parkingHash : string, _timeOccupied : string, _zone : number, _tariff : number, _penaltyIndex :number, _maxTime : number, _city: string, _locationX: number, _locationY: number){
+    constructor(_id: number, _parkingHash : string, _timeOccupied : string, _zone : number, _tariff : number, _penaltyIndex :number, _maxTime : number, _city: string, _locationX: number, _locationY: number){
+        this.id = _id;
         this.parkingHash = _parkingHash;
         this.timeOccupied = _timeOccupied;
         this.zone = _zone;

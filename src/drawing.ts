@@ -99,7 +99,8 @@ export function drawCheckerContent(){
     contentDiv.appendChild(parkingSpotBox);
     if(!state.parked){
         let label: HTMLLabelElement = document.createElement("label");
-        label.innerHTML = "Enter your code here:";
+        label.classList.add("enterCodeLabel");
+        label.innerHTML = `${environments.labelEnterCodeString}`;
         parkingSpotBox.appendChild(label);
         let inputHashField: HTMLInputElement = document.createElement("input");
         inputHashField.maxLength = environments.codeLength;
@@ -119,6 +120,11 @@ export function drawCheckerContent(){
         label.classList.add("infoLabel");
         infoBox.appendChild(label);
 
+        label = document.createElement("label");
+        label.setAttribute("id","remainingTimeLabel");
+        label.classList.add("infoLabel");
+        infoBox.appendChild(label);
+
         parkingSpotBox.appendChild(infoBox);
         let logOutButton : HTMLButtonElement = document.createElement("button");
         logOutButton.innerHTML = "Pay";        
@@ -132,16 +138,21 @@ export function drawCheckerContent(){
     }
 }
 
-export function showCurrentState(output: [string,number,boolean]){
+export function showCurrentState(output: [string, string, number, boolean]){
     let state = createClient();    
     let duration = output[0];
-    state.price = output[1];
+    state.price = output[2];
     let labelTime : HTMLElement= document.getElementById("timeSpentLabel");
     let labelPrice : HTMLElement= document.getElementById("priceLabel");
-    if(output[2]){
+    let labelRemainingTime : HTMLElement= document.getElementById("remainingTimeLabel");
+    if(output[3]){
         labelTime.classList.add("infoLabelPenalty");
         labelPrice.classList.add("infoLabelPenalty");
+        labelRemainingTime.innerHTML = `${environments.labelRemainingTimePenaltyString}`;
+        labelRemainingTime.classList.add("infoLabelPenalty");
+    }else{
+        labelRemainingTime.innerHTML = `${environments.labelRemainingTimeString}${output[1]}`;
     }
     labelTime.innerHTML = `${environments.labelTimeString}${duration}`;
-    labelPrice.innerHTML = `${state.price} ${environments.currency}`;
+    labelPrice.innerHTML = `${environments.labelPriceString}${state.price} ${environments.currency}`;
 }
