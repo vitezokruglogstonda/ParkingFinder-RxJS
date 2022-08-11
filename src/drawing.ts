@@ -85,6 +85,7 @@ function drawFinderContent(){
 }
 
 export function drawCheckerContent(){
+    
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
 
     contentDiv.childNodes.forEach((x)=>{

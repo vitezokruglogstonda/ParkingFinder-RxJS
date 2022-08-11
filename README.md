@@ -1,5 +1,6 @@
 # ParkingFinder-RxJS
 WebAppDevelopment (faculty project)
+
     -imagine that the infrastructure of cities improved significantly in the future, and city streets don't have parkings on sideroads and sidewalks, but instead goverments decided to build huge underground automated parkings so they have more space for pedestrians and other traffic users
     -this app would be used by drivers to find those underground parking garages quickly and more easily
     -on the first page of the app, a map is displayed for you to find and select a nearby garage
