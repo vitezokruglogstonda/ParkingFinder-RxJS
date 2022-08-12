@@ -48,10 +48,13 @@ class clientState{
         let currentPlace: Place = this.placesList.find( obj => {return obj.name === this.selectedPlace;});
         // state.map.center=currentPlace.center;
         // state.map.zoom=currentPlace.zoom;    
-        this.map.center=[-74.5, 40];
-        this.map.zoom=2;  
         
-
+        
+        this.map.flyTo({
+            center: [20.453585, 44.807016],
+            zoom: 10,
+            essential: true 
+        });
     }
 }
 

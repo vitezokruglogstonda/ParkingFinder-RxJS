@@ -127,13 +127,13 @@ function drawFinderContent(){
     let map = state.getMap();
 
 
-    map.flyTo({
-        center: [-74.5, 40],
-        zoom: 8,
-        essential: true 
-    });
+    // map.flyTo({
+    //     center: [20.453585, 44.807016],
+    //     zoom: 11,
+    //     essential: true 
+    // });
 
-    // state.showPlaceOnMap();
+    state.showPlaceOnMap();
 
 }
 
