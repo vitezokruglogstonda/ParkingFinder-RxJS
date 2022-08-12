@@ -13,4 +13,6 @@ export const environments = {
     currency: "RSD",
     paymentInfo: "Parking time ended, your vehicle is on the way. Thank you for using our services.\nEstimated price: ",
     findParkingInfoString: "Please select your location to find nearby parking.",
+    mapLink: "https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css",
+    mapToken: "pk.eyJ1IjoiYW5kMXJpamEiLCJhIjoiY2w2bmxxNnA5MDIyazNpbXR2MTE5ZG0zbCJ9.TSyRXbo87WwCHPRC0EmVag",
 };

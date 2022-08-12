@@ -79,9 +79,20 @@ function changeTabTo(newTab: string){
 function drawFinderContent(){
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
     
-    contentDiv.childNodes.forEach((x)=>{
-        contentDiv.removeChild(x);
-    });
+    // contentDiv.childNodes.forEach((x)=>{
+    //     contentDiv.removeChild(x);
+    // });
+
+    let child = contentDiv.lastElementChild; 
+    while (child) {
+        contentDiv.removeChild(child);
+        child = contentDiv.lastElementChild;
+    }
+
+    const linkTag: HTMLLinkElement = document.createElement("link");
+    linkTag.setAttribute("href", environments.mapLink);
+    linkTag.setAttribute("rel", "stylesheet");
+    document.head.appendChild(linkTag);
 
     let filterDiv: HTMLDivElement = document.createElement("div");
     filterDiv.classList.add("filterDiv");
@@ -102,11 +113,27 @@ function drawFinderContent(){
     });
     //on change da poziva funkciju iz observable gde steluje mapu
     filterDiv.appendChild(selectCity);
-
     contentDiv.appendChild(filterDiv);
 
-    //mapa
+    //storing tmp selected place into clientState
+    state.selectedPlace = selectCity.options[selectCity.selectedIndex].value;
 
+    //draw map
+
+    let mapDiv: HTMLDivElement = document.createElement("div");
+    mapDiv.setAttribute("id","mapDiv");
+    contentDiv.appendChild(mapDiv);
+
+    let map = state.getMap();
+
+
+    map.flyTo({
+        center: [-74.5, 40],
+        zoom: 8,
+        essential: true 
+    });
+
+    // state.showPlaceOnMap();
 
 }
 
@@ -114,9 +141,15 @@ export function drawCheckerContent(){
     
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
 
-    contentDiv.childNodes.forEach((x)=>{
-        contentDiv.removeChild(x);
-    });
+    // contentDiv.childNodes.forEach((x)=>{
+    //     contentDiv.removeChild(x);
+    // });
+
+    let child = contentDiv.lastElementChild; 
+    while (child) {
+        contentDiv.removeChild(child);
+        child = contentDiv.lastElementChild;
+    }
 
     let parkingSpotBox: HTMLDivElement = document.createElement("div");
     parkingSpotBox.classList.add("parkingSpotBox");
@@ -183,3 +216,4 @@ export function showCurrentState(output: [string, string, number, boolean]){
     labelTime.innerHTML = `${environments.labelTimeString}${duration}`;
     labelPrice.innerHTML = `${environments.labelPriceString}${state.price} ${environments.currency}`;
 }
+

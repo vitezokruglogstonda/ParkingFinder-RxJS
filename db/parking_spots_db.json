@@ -837,11 +837,13 @@
     {
       "id": 1,
       "name": "Belgrade",
+      "center": [],
       "zoom": 5
     },
     {
       "id": 2,
       "name": "Nis",
+      "center": [],
       "zoom": 6
     }
   ]

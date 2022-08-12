@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "json-server": "^0.17.0",
+    "mapbox-gl": "^2.9.2",
     "rxjs": "^7.5.6"
   }
 }

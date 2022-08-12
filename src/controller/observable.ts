@@ -143,6 +143,5 @@ export function fetchPlaces(): Place[]{
     promise.then((list:Place[])=>{
         placesList = list;
     });
-    console.log(placesList);
     return placesList;
 }
