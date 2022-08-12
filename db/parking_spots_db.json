@@ -832,5 +832,17 @@
       "occupied": true,
       "timeOccupied": "13:8:0"
     }
+  ],
+  "places":[
+    {
+      "id": 1,
+      "name": "Belgrade",
+      "zoom": 5
+    },
+    {
+      "id": 2,
+      "name": "Nis",
+      "zoom": 6
+    }
   ]
 }

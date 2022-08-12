@@ -3,6 +3,7 @@ import { ParkingSpot } from "../models/ParkingSpot";
 import {environments} from "../environments";
 import { createClient } from "../models/clientState";
 import { drawCheckerContent, showCurrentState } from "../drawing";
+import { Place } from "../models/Place";
 
 export function checkCode(input: HTMLInputElement){
     fromEvent(input, "input").pipe(
@@ -122,4 +123,26 @@ function freeParking():Observable<Response>{
     );
     state.parkingSpot=null;
     return putRequest;
+}
+
+export function fetchPlaces(): Place[]{
+    const url: string = `${environments.URL}/places/`;    
+    let placesList:Place[] = [];
+    const x: string[] = [];
+    let len: number = 0;
+    let promise = fetch(url)
+        .then( response => {return response.json();});
+    // .then( (list) => {
+    //         len = list.length;
+            
+    //         // list.results.map( (obj: Place) => x.push(obj.name) );
+    //         // console.log(x);
+
+    //         //placesList = list.data.map( (obj: Place) => placesList.push(new Place(obj)));
+    // });
+    promise.then((list:Place[])=>{
+        placesList = list;
+    });
+    console.log(placesList);
+    return placesList;
 }

@@ -1,6 +1,7 @@
 import {createClient} from "./models/clientState";
 import { calculate, checkCode, logOut } from "./controller/observable";
 import { environments } from "./environments";
+import { filter } from "rxjs";
 
 const state = createClient();
 
@@ -81,6 +82,31 @@ function drawFinderContent(){
     contentDiv.childNodes.forEach((x)=>{
         contentDiv.removeChild(x);
     });
+
+    let filterDiv: HTMLDivElement = document.createElement("div");
+    filterDiv.classList.add("filterDiv");
+
+    let label : HTMLLabelElement = document.createElement("label");
+    label.innerHTML = "City: ";
+    filterDiv.appendChild(label);
+
+    let selectCity: HTMLSelectElement = document.createElement("select");
+    let state = createClient();    
+    let places: string[] = state.places;
+    let option: HTMLOptionElement;
+    places.forEach( (place) => {
+        option = document.createElement("option");
+        option.innerHTML = place;
+        option.value = place;
+        selectCity.appendChild(option);
+    });
+    //on change da poziva funkciju iz observable gde steluje mapu
+    filterDiv.appendChild(selectCity);
+
+    contentDiv.appendChild(filterDiv);
+
+    //mapa
+
 
 }
 
