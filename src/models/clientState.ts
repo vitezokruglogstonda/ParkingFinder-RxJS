@@ -2,6 +2,7 @@ import {environments} from "../environments";
 import { ParkingSpot } from "./ParkingSpot";
 import {fetchPlaces} from "../controller/observable";
 import { Place } from "../models/Place";
+import { Subject } from "rxjs";
 
 let state: clientState = undefined;
 
@@ -10,10 +11,10 @@ class clientState{
     parked:boolean;
     parkingSpot: ParkingSpot;
     price: number;
-    //placesList: string[];
     placesList: Place[];
     selectedPlace: string;
     map: any;
+    subject: Subject<any>;
 
     constructor(currTab:string){
         this.currentTab = currTab;
@@ -22,14 +23,14 @@ class clientState{
         this.placesList = [];
         this.selectedPlace = null;
         this.map = null;
+        this.subject = new Subject<any>();
     }
 
-    get places(): string[]{
+    getPlaces(): string[]{
         if(this.placesList.length === 0){
-            this.placesList = fetchPlaces();
+            fetchPlaces();
         }
-        //let placeNames: string[] = this.placesList.map( (place: Place) =>  {return place.name;} );
-        let placeNames: string[] = ["Beograd", "Nis"]
+        let placeNames: string[] = this.placesList.map( (place: Place) =>  {return place.name;} );
         return placeNames;
     }
 
@@ -40,19 +41,20 @@ class clientState{
             container: 'mapDiv',
             style: 'mapbox://styles/mapbox/streets-v11'
         });
-        this.map.addControl(new mapboxgl.NavigationControl());        
+        this.map.addControl(new mapboxgl.NavigationControl());            
         return this.map;
+    }
+
+    changeSelectedPlace(newPlace: string){
+        this.selectedPlace = newPlace;
     }
 
     showPlaceOnMap(){
         let currentPlace: Place = this.placesList.find( obj => {return obj.name === this.selectedPlace;});
-        // state.map.center=currentPlace.center;
-        // state.map.zoom=currentPlace.zoom;    
-        
         
         this.map.flyTo({
-            center: [20.453585, 44.807016],
-            zoom: 10,
+            center: currentPlace.center,
+            zoom: currentPlace.zoom,
             essential: true 
         });
     }
@@ -64,5 +66,3 @@ export function createClient(): clientState{
     }    
     return state;
 }
-
-//export const state = new clientState(environments.initialTab);

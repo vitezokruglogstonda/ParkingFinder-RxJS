@@ -56,9 +56,11 @@ export function draw(container:HTMLElement){
     horisontalLine.classList.add("hrLine");
     optionsDiv.appendChild(horisontalLine);
 
-    //content
-    drawFinderContent();
+    drawWaiterContent();
 
+    state.subject.subscribe({
+        next: () => {drawFinderContent();},
+    });
 }
 
 function changeTabTo(newTab: string){
@@ -74,6 +76,31 @@ function changeTabTo(newTab: string){
             drawCheckerContent();
         }
     }
+}
+
+function drawWaiterContent(){
+    let contentDiv = document.getElementsByClassName("contentDiv")[0];
+    let child = contentDiv.lastElementChild; 
+    while (child) {
+        contentDiv.removeChild(child);
+        child = contentDiv.lastElementChild;
+    }
+
+    let loaderContainer: HTMLDivElement = document.createElement("div");
+    loaderContainer.classList.add("loaderContainer");
+    let loaderDiv: HTMLDivElement = document.createElement("div");
+    loaderDiv.classList.add("loader");
+    loaderContainer.appendChild(loaderDiv);
+    contentDiv.appendChild(loaderContainer);
+
+    setTimeout(
+        () => {
+            let arr: string[] = state.getPlaces();
+            if(arr.length !== 0){
+                drawFinderContent();
+            }
+        }
+    ,1000);    
 }
 
 function drawFinderContent(){
@@ -101,9 +128,12 @@ function drawFinderContent(){
     label.innerHTML = "City: ";
     filterDiv.appendChild(label);
 
-    let selectCity: HTMLSelectElement = document.createElement("select");
-    let state = createClient();    
-    let places: string[] = state.places;
+    let selectCity: HTMLSelectElement = document.createElement("select");    
+    selectCity.addEventListener("change", (ev) => {
+        state.changeSelectedPlace(selectCity.options[selectCity.selectedIndex].value);
+        state.showPlaceOnMap();
+    });
+    let places: string[] = state.getPlaces();
     let option: HTMLOptionElement;
     places.forEach( (place) => {
         option = document.createElement("option");
@@ -111,12 +141,11 @@ function drawFinderContent(){
         option.value = place;
         selectCity.appendChild(option);
     });
-    //on change da poziva funkciju iz observable gde steluje mapu
     filterDiv.appendChild(selectCity);
     contentDiv.appendChild(filterDiv);
 
     //storing tmp selected place into clientState
-    state.selectedPlace = selectCity.options[selectCity.selectedIndex].value;
+    state.changeSelectedPlace(selectCity.options[selectCity.selectedIndex].value);
 
     //draw map
 
@@ -125,13 +154,6 @@ function drawFinderContent(){
     contentDiv.appendChild(mapDiv);
 
     let map = state.getMap();
-
-
-    // map.flyTo({
-    //     center: [20.453585, 44.807016],
-    //     zoom: 11,
-    //     essential: true 
-    // });
 
     state.showPlaceOnMap();
 
@@ -199,7 +221,6 @@ export function drawCheckerContent(){
 }
 
 export function showCurrentState(output: [string, string, number, boolean]){
-    let state = createClient();    
     let duration = output[0];
     state.price = output[2];
     let labelTime : HTMLElement= document.getElementById("timeSpentLabel");

@@ -125,23 +125,16 @@ function freeParking():Observable<Response>{
     return putRequest;
 }
 
-export function fetchPlaces(): Place[]{
+export function fetchPlaces(){
     const url: string = `${environments.URL}/places/`;    
-    let placesList:Place[] = [];
-    const x: string[] = [];
-    let len: number = 0;
-    let promise = fetch(url)
-        .then( response => {return response.json();});
-    // .then( (list) => {
-    //         len = list.length;
-            
-    //         // list.results.map( (obj: Place) => x.push(obj.name) );
-    //         // console.log(x);
-
-    //         //placesList = list.data.map( (obj: Place) => placesList.push(new Place(obj)));
-    // });
-    promise.then((list:Place[])=>{
-        placesList = list;
+    let state = createClient();
+    fetch(url)
+        .then( response => {
+            response.json().then( (list) => {
+                list.forEach( (el:Place) => {
+                    state.placesList.push(el);
+                })
+                state.subject.next(1);
+            })
     });
-    return placesList;
 }
