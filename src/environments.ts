@@ -15,5 +15,5 @@ export const environments = {
     findParkingInfoString: "Please select your location to find nearby parking.",
     mapLink: "https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css",
     mapToken: "pk.eyJ1IjoiYW5kMXJpamEiLCJhIjoiY2w2bmxxNnA5MDIyazNpbXR2MTE5ZG0zbCJ9.TSyRXbo87WwCHPRC0EmVag",
-    offset: 0.001,
+    offsets: [0.001, 0.002, 0.003, 0.004, 0.005, 0.01],
 };

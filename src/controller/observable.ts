@@ -4,7 +4,6 @@ import {environments} from "../environments";
 import { createClient } from "../models/clientState";
 import { drawCheckerContent, showCurrentState } from "../drawing";
 import { Place } from "../models/Place";
-import { Location } from "../models/Location";
 
 export function checkCode(input: HTMLInputElement){
     fromEvent(input, "input").pipe(
@@ -87,7 +86,6 @@ function calculateTimeAndPrice(durS: number, x: number): [string, string, number
 
 export function logOut(sub: Subscription){
     sub.unsubscribe();
-    //javi serveru da je slobodno
     freeParking();
     let state = createClient();
     let info: string = environments.paymentInfo+state.price;
@@ -136,59 +134,23 @@ export function fetchPlaces(){
                     state.placesList.push(el);
                 })
                 state.subjectPlaces.next(1);
+                state.subjectPlaces.complete();
             })
     });
 }
 
-// export function fetchNearbyParkings(){
-//     let state = createClient();
-//     let minX: number, maxX: number, minY: number, maxY: number;
-//     let offset = 0.001;
-//     minX = state.userLocation.lng - offset;
-//     maxX = state.userLocation.lng + offset;
-//     minY = state.userLocation.lat - offset;
-//     maxY = state.userLocation.lat + offset;
-
-//     fetch(`${environments.URL}/parkings/?locationX_gte=${minX}&locationX_lte=${maxX}&locationY_gte=${minY}&locationY_lte=${maxY}`)
-//         .then(res=> res.json().then( list => {
-//             if(list.length > 0){            
-//                 list.forEach( (el:any) => {
-//                     state.fatchedParkings.push(new Location(el.locationX, el.locationY));
-//                 })            
-//                 state.subjectPakrings.next(1);
-//             }        
-//     }))
-// }
-
 export function getNearbyParkings():Observable<any>{
     
-    //let offset$: number[] = [0.01];
-    let offset$: number[] = [0.001, 0.002, 0.003, 0.004, 0.005, 0.01];
-    // const obs = from(offset$).pipe(
-    //     reduce((offset: number) => {calculateCoordinateLimits(offset);}),
-    //     switchMap((value$: number[]) => {fetchNearbyParkings(value$);})
-    // ); 
-
-    // const obs = from([]).pipe(
-    //     startWith(1),
-    //     takeWhile((x: number)=> x<=5),
-    //     reduce((x: number)=> {return x*=0.001}),
-    //     map((offset: number) => calculateCoordinateLimits(offset)),
-    //     switchMap((offset: number[]) => fetchNearbyParkings(offset)),
-    //     //every((list: any) => list.length>0)
-    //     skipWhile((list: any)=> list.length === 0),
-    //     takeUntil(unsubscriber)
-    // ); 
     let state = createClient();
+    let offset$: number[] = environments.offsets;    
+    
     const obs = from(offset$).pipe(
+        takeUntil(state.unsubscriber),
         map((offset: number) => calculateCoordinateLimits(offset)),
         switchMap((offset: number[]) => fetchNearbyParkings(offset)),
-        skipWhile((list: any)=> list.length === 0),
         map((list: any) => list.filter((parking: any) => parking.occupied === false)),
         map((list:any) => list.filter((el: any, index: number) => list.indexOf(list.find((p:any) => p.locationX===el.locationX && p.locationY===el.locationY)) === index )),
-        //takeUntil(state.unsubscriber),
-        //take(1)
-        single()
+        skipWhile((list: any)=> list.length === 0),        
     ); 
 
     return obs;

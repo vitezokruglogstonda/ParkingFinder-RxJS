@@ -106,10 +106,6 @@ function drawWaiterContent(){
 function drawFinderContent(){
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
     
-    // contentDiv.childNodes.forEach((x)=>{
-    //     contentDiv.removeChild(x);
-    // });
-
     let child = contentDiv.lastElementChild; 
     while (child) {
         contentDiv.removeChild(child);
@@ -146,10 +142,7 @@ function drawFinderContent(){
     filterDiv.appendChild(selectCity);
     contentDiv.appendChild(filterDiv);
 
-    //storing tmp selected place into clientState
     state.changeSelectedPlace(selectCity.options[selectCity.selectedIndex].value);
-
-    //draw map
 
     let mapDiv: HTMLDivElement = document.createElement("div");
     mapDiv.setAttribute("id","mapDiv");
@@ -164,10 +157,6 @@ function drawFinderContent(){
 export function drawCheckerContent(){
     
     let contentDiv = document.getElementsByClassName("contentDiv")[0];
-
-    // contentDiv.childNodes.forEach((x)=>{
-    //     contentDiv.removeChild(x);
-    // });
 
     let child = contentDiv.lastElementChild; 
     while (child) {
