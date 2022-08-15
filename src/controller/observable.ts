@@ -1,4 +1,4 @@
-import {debounceTime, every, filter, forkJoin, from, fromEvent, interval, map, Observable, reduce, skipWhile, startWith, Subject, Subscription, switchMap, take, takeUntil, takeWhile} from "rxjs";
+import {debounceTime, every, filter, forkJoin, from, fromEvent, interval, map, Observable, reduce, single, skipWhile, startWith, Subject, Subscription, switchMap, take, takeUntil, takeWhile} from "rxjs";
 import { ParkingSpot } from "../models/ParkingSpot";
 import {environments} from "../environments";
 import { createClient } from "../models/clientState";
@@ -160,8 +160,9 @@ export function fetchPlaces(){
 //     }))
 // }
 
-export function getNearbyParkings(unsubscriber: Subject<any>):Observable<any>{
+export function getNearbyParkings():Observable<any>{
     
+    //let offset$: number[] = [0.01];
     let offset$: number[] = [0.001, 0.002, 0.003, 0.004, 0.005, 0.01];
     // const obs = from(offset$).pipe(
     //     reduce((offset: number) => {calculateCoordinateLimits(offset);}),
@@ -178,12 +179,16 @@ export function getNearbyParkings(unsubscriber: Subject<any>):Observable<any>{
     //     skipWhile((list: any)=> list.length === 0),
     //     takeUntil(unsubscriber)
     // ); 
-
+    let state = createClient();
     const obs = from(offset$).pipe(
         map((offset: number) => calculateCoordinateLimits(offset)),
         switchMap((offset: number[]) => fetchNearbyParkings(offset)),
         skipWhile((list: any)=> list.length === 0),
-        takeUntil(unsubscriber)
+        map((list: any) => list.filter((parking: any) => parking.occupied === false)),
+        map((list:any) => list.filter((el: any, index: number) => list.indexOf(list.find((p:any) => p.locationX===el.locationX && p.locationY===el.locationY)) === index )),
+        //takeUntil(state.unsubscriber),
+        //take(1)
+        single()
     ); 
 
     return obs;

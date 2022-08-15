@@ -20,7 +20,7 @@ class clientState{
     userLocation: Location;
     fatchedParkings: Location[];
     fatchedParkingsMarkers: any[];
-    //subjectPakrings: Subject<any>;
+    unsubscriber: Subject<any>;
 
     constructor(currTab:string){
         this.currentTab = currTab;
@@ -33,7 +33,7 @@ class clientState{
         this.userLocation = null;
         this.fatchedParkings = [];
         this.fatchedParkingsMarkers = [];
-        //this.subjectPakrings = new Subject<any>();
+        this.unsubscriber = new Subject<any>();
     }
 
     getPlaces(): string[]{
@@ -78,9 +78,9 @@ class clientState{
             console.log(this.userLocation);
             
             //fetchNearbyParkings();
-            let unsubscriber = new Subject();
-            getNearbyParkings(unsubscriber).subscribe((list: any)=>{
-                unsubscriber.unsubscribe();
+            getNearbyParkings().subscribe((list: any)=>{
+                //unsubscriber.unsubscribe();
+                
                 list.forEach( (el:any) => {
                     state.fatchedParkings.push(new Location(el.locationX, el.locationY));
                 })            
@@ -97,6 +97,8 @@ class clientState{
                     this.fatchedParkingsMarkers.push(marker);
                 });
             });
+            this.unsubscriber.next(1);
+            this.unsubscriber.complete();
 
             // state.subjectPakrings.subscribe({
             //     next: () => {
