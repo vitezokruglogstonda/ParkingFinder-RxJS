@@ -74,7 +74,7 @@ class clientState{
                 .setLngLat(this.userLocation)
                 .addTo(this.map);
             
-            //console.log(this.userLocation);
+            console.log(this.userLocation);
             
             getNearbyParkings().subscribe((list: any)=>{
                 
@@ -83,8 +83,7 @@ class clientState{
                 })            
                 
                 this.unsubscriber.next(true);
-                //this.unsubscriber.complete();
-                console.log(this.unsubscriber);
+                this.unsubscriber.complete();
                 
                 let parkingLocationPoint: HTMLElement;
                 let marker: any;
@@ -96,8 +95,7 @@ class clientState{
                         .addTo(this.map);
                     this.fatchedParkingsMarkers.push(marker);
                 });
-            });
-            
+            });        
 
           });
 

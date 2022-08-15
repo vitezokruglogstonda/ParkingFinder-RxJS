@@ -144,13 +144,13 @@ export function getNearbyParkings():Observable<any>{
     let state = createClient();
     let offset$: number[] = environments.offsets;    
     
-    const obs = from(offset$).pipe(
-        takeUntil(state.unsubscriber),
+    const obs = from(offset$).pipe(        
         map((offset: number) => calculateCoordinateLimits(offset)),
         switchMap((offset: number[]) => fetchNearbyParkings(offset)),
         map((list: any) => list.filter((parking: any) => parking.occupied === false)),
         map((list:any) => list.filter((el: any, index: number) => list.indexOf(list.find((p:any) => p.locationX===el.locationX && p.locationY===el.locationY)) === index )),
-        skipWhile((list: any)=> list.length === 0),        
+        skipWhile((list: any)=> list.length === 0),
+        takeUntil(state.unsubscriber),
     ); 
 
     return obs;
