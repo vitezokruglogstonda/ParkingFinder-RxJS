@@ -125,10 +125,12 @@ function drawFinderContent(){
     filterDiv.classList.add("filterDiv");
 
     let label : HTMLLabelElement = document.createElement("label");
+    label.classList.add("selectLabel");
     label.innerHTML = "City: ";
     filterDiv.appendChild(label);
 
-    let selectCity: HTMLSelectElement = document.createElement("select");    
+    let selectCity: HTMLSelectElement = document.createElement("select"); 
+    selectCity.classList.add("selectCity");   
     selectCity.addEventListener("change", (ev) => {
         state.changeSelectedPlace(selectCity.options[selectCity.selectedIndex].value);
         state.showPlaceOnMap();

@@ -179,6 +179,32 @@ button{
     border-radius: 5px;
 }
 
+.filterDiv{
+    display:flex;
+    align-items: center;
+}
+
+.selectLabel{
+    color:#c0c0c0;
+}
+
+.selectCity{    
+    color: white;
+    border-radius: 10px;
+    border-width: 0px;
+    background-color: #e25822;
+    text-align: center;
+    line-height: 3.5;
+    font-weight: 600;
+    font-size: 150%;
+    border:none;
+    outline-width: 0;
+    font-family: 'Courier New', Courier, monospace;
+    height: 50%;
+    position: relative;
+    left: 2%;
+}
+
 .infoLabel{
     color: white;
     flex-grow: 1;
