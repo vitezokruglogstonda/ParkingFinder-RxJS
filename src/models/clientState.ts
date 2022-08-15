@@ -1,6 +1,5 @@
 import {environments} from "../environments";
 import { ParkingSpot } from "./ParkingSpot";
-//import {fetchNearbyParkings, fetchPlaces} from "../controller/observable";
 import {getNearbyParkings, fetchPlaces} from "../controller/observable";
 import { Place } from "../models/Place";
 import { Subject } from "rxjs";
