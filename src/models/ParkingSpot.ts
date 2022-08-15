@@ -1,3 +1,5 @@
+import {Location} from "./Location";
+
 export class ParkingSpot{
     id: number = undefined
     parkingHash: string = undefined;
@@ -8,8 +10,7 @@ export class ParkingSpot{
     tariff: number = undefined; //ovo se mnozi sa provedenim vremenom (kao koeficijent) i tako dobija cena
     penaltyIndex: number = undefined; //ovo se mnozi sa tarifom ako se prekoraci maxTime 
     maxTime: number = undefined;
-    locationX: number = undefined;
-    locationY: number = undefined;
+    location: Location = undefined;
 
     constructor(_id: number, _parkingHash : string, _timeOccupied : string, _zone : number, _tariff : number, _penaltyIndex :number, _maxTime : number, _city: string, _locationX: number, _locationY: number){
         this.id = _id;
@@ -25,7 +26,6 @@ export class ParkingSpot{
             this.maxTime = _maxTime;
         }
         this.city = _city;
-        this.locationX = _locationX;
-        this.locationY = _locationY;
+        this.location = new Location(_locationX, _locationY);
     }
 }

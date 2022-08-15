@@ -1,8 +1,10 @@
 import {environments} from "../environments";
 import { ParkingSpot } from "./ParkingSpot";
-import {fetchPlaces} from "../controller/observable";
+//import {fetchNearbyParkings, fetchPlaces} from "../controller/observable";
+import {getNearbyParkings, fetchPlaces} from "../controller/observable";
 import { Place } from "../models/Place";
 import { Subject } from "rxjs";
+import { Location } from "./Location";
 
 let state: clientState = undefined;
 
@@ -14,7 +16,11 @@ class clientState{
     placesList: Place[];
     selectedPlace: string;
     map: any;
-    subject: Subject<any>;
+    subjectPlaces: Subject<any>;
+    userLocation: Location;
+    fatchedParkings: Location[];
+    fatchedParkingsMarkers: any[];
+    //subjectPakrings: Subject<any>;
 
     constructor(currTab:string){
         this.currentTab = currTab;
@@ -23,7 +29,11 @@ class clientState{
         this.placesList = [];
         this.selectedPlace = null;
         this.map = null;
-        this.subject = new Subject<any>();
+        this.subjectPlaces = new Subject<any>();
+        this.userLocation = null;
+        this.fatchedParkings = [];
+        this.fatchedParkingsMarkers = [];
+        //this.subjectPakrings = new Subject<any>();
     }
 
     getPlaces(): string[]{
@@ -33,7 +43,7 @@ class clientState{
         let placeNames: string[] = this.placesList.map( (place: Place) =>  {return place.name;} );
         return placeNames;
     }
-
+    
     getMap(){
         let mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
         mapboxgl.accessToken = environments.mapToken;
@@ -41,7 +51,72 @@ class clientState{
             container: 'mapDiv',
             style: 'mapbox://styles/mapbox/streets-v11'
         });
-        this.map.addControl(new mapboxgl.NavigationControl());            
+        this.map.addControl(new mapboxgl.NavigationControl());
+                
+        this.map.on('click', (e: any) => {
+            let userLocationPoint: HTMLElement = document.getElementById("marker");
+            if(userLocationPoint === null){
+                userLocationPoint = document.createElement('div');
+                userLocationPoint.setAttribute("id","marker");
+                this.userLocation = new Location();
+            }else{
+                new mapboxgl.Marker(userLocationPoint)
+                    .remove(this.map);
+                this.fatchedParkingsMarkers.forEach( parking => {
+                    parking.remove();
+                });
+                this.fatchedParkingsMarkers.splice(0);
+                this.fatchedParkings.splice(0);
+            }
+            this.userLocation.lng = e.lngLat.lng;
+            this.userLocation.lat = e.lngLat.lat;
+            new mapboxgl.Marker(userLocationPoint)
+                .setLngLat(this.userLocation)
+                .addTo(this.map);
+
+            //pozovi fetch za sve obliznje parkinge (prosledi lokaciju, pa on da racuna u kom range-u moze da bude parking)
+            console.log(this.userLocation);
+            
+            //fetchNearbyParkings();
+            let unsubscriber = new Subject();
+            getNearbyParkings(unsubscriber).subscribe((list: any)=>{
+                unsubscriber.unsubscribe();
+                list.forEach( (el:any) => {
+                    state.fatchedParkings.push(new Location(el.locationX, el.locationY));
+                })            
+                //state.subjectPakrings.next(1);
+                
+                let parkingLocationPoint: HTMLElement;
+                let marker: any;
+                this.fatchedParkings.forEach( parking => {
+                    parkingLocationPoint = document.createElement("div");
+                    parkingLocationPoint.classList.add("parking");
+                    marker = new mapboxgl.Marker(parkingLocationPoint)
+                        .setLngLat(parking)
+                        .addTo(this.map);
+                    this.fatchedParkingsMarkers.push(marker);
+                });
+            });
+
+            // state.subjectPakrings.subscribe({
+            //     next: () => {
+            //         let parkingLocationPoint: HTMLElement;
+            //         let marker: any;
+            //         this.fatchedParkings.forEach( parking => {
+            //             parkingLocationPoint = document.createElement("div");
+            //             parkingLocationPoint.classList.add("parking");
+            //             //obrisi prethodne
+            //             marker = new mapboxgl.Marker(parkingLocationPoint)
+            //                 .setLngLat(parking)
+            //                 .addTo(this.map);
+            //             this.fatchedParkingsMarkers.push(marker);
+            //         });
+            //     },
+            // });
+
+
+          });
+
         return this.map;
     }
 

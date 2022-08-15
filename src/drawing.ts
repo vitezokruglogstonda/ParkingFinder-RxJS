@@ -58,7 +58,7 @@ export function draw(container:HTMLElement){
 
     drawWaiterContent();
 
-    state.subject.subscribe({
+    state.subjectPlaces.subscribe({
         next: () => {drawFinderContent();},
     });
 }

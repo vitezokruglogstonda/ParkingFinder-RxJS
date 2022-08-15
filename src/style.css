@@ -222,3 +222,25 @@ button{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
+#mapDiv{
+    border-radius: 5px;
+}
+
+.mapboxgl-marker {
+    height: 10px;
+    width: 10px;
+    z-index: 5;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: #e25822;
+}
+
+.mapboxgl-marker.parking {
+    height: 10px;
+    width: 10px;
+    z-index: 5;
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: #89CFF0;
+}
