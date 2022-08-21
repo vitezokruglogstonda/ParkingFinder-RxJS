@@ -15,7 +15,7 @@ export function checkCode(input: HTMLInputElement){
         if(output[0].occupied === true){
             let state = createClient();
             state.parked=true;
-            state.parkingSpot = new ParkingSpot(output[0].id, output[0].parkingHash, output[0].timeOccupied, output[0].address, output[0].zone, output[0].tariff, output[0].penaltyIndex, output[0].maxTime, output[0].city, output[0].locationX, output[0].locationY);
+            state.parkingSpot = new ParkingSpot(output[0].id, output[0].code, output[0].timeOccupied, output[0].address, output[0].zone, output[0].tariff, output[0].penaltyIndex, output[0].maxTime, output[0].city, output[0].locationX, output[0].locationY);
             drawCheckerContent();
         }else{
             alert("This is not your parking spot.");
