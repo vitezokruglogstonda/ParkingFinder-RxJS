@@ -15,7 +15,7 @@ export function checkCode(input: HTMLInputElement){
         if(output[0].occupied === true){
             let state = createClient();
             state.parked=true;
-            state.parkingSpot = new ParkingSpot(output[0].id, output[0].parkingHash, output[0].timeOccupied, output[0].zone, output[0].tariff, output[0].penaltyIndex, output[0].maxTime, output[0].city, output[0].locationX, output[0].locationY);
+            state.parkingSpot = new ParkingSpot(output[0].id, output[0].parkingHash, output[0].timeOccupied, output[0].address, output[0].zone, output[0].tariff, output[0].penaltyIndex, output[0].maxTime, output[0].city, output[0].locationX, output[0].locationY);
             drawCheckerContent();
         }else{
             alert("This is not your parking spot.");
@@ -108,6 +108,7 @@ function freeParking():Observable<Response>{
                     id:state.parkingSpot.id,
                     code:state.parkingSpot.parkingHash,
                     city:state.parkingSpot.city,
+                    address: state.parkingSpot.address,
                     zone:state.parkingSpot.zone,
                     tariff: state.parkingSpot.tariff,
                     penaltyIndex: state.parkingSpot.penaltyIndex,
@@ -124,19 +125,15 @@ function freeParking():Observable<Response>{
     return putRequest;
 }
 
-export function fetchPlaces(){
-    const url: string = `${environments.URL}/places/`;    
-    let state = createClient();
-    fetch(url)
+export function fetchPlaces(): Observable<any>{
+    const url: string = `${environments.URL}/places/`;        
+    const obs = from(
+        fetch(url)
         .then( response => {
-            response.json().then( (list) => {
-                list.forEach( (el:Place) => {
-                    state.placesList.push(el);
-                })
-                state.subjectPlaces.next(1);
-                state.subjectPlaces.complete();
-            })
-    });
+            return response.json();
+        })
+    );
+    return obs;
 }
 
 export function getNearbyParkings():Observable<any>{

@@ -17,7 +17,8 @@ class clientState{
     map: any;
     subjectPlaces: Subject<any>;
     userLocation: Location;
-    fatchedParkings: Location[];
+    //fatchedParkings: Location[];
+    fatchedParkings: ParkingSpot[];
     fatchedParkingsMarkers: any[];
     unsubscriber: Subject<any>;
 
@@ -37,7 +38,13 @@ class clientState{
 
     getPlaces(): string[]{
         if(this.placesList.length === 0){
-            fetchPlaces();
+            fetchPlaces().subscribe((list: any) => {
+                list.forEach((el:Place)=>{
+                    this.placesList.push(el);
+                });
+                state.subjectPlaces.next(1);
+                state.subjectPlaces.complete();
+            });
         }
         let placeNames: string[] = this.placesList.map( (place: Place) =>  {return place.name;} );
         return placeNames;
@@ -72,26 +79,45 @@ class clientState{
             new mapboxgl.Marker(userLocationPoint)
                 .setLngLat(this.userLocation)
                 .addTo(this.map);
-            
+                        
             console.log(this.userLocation);
             
             getNearbyParkings().subscribe((list: any)=>{
                 
                 list.forEach( (el:any) => {
-                    this.fatchedParkings.push(new Location(el.locationX, el.locationY));
+                    this.fatchedParkings.push(new ParkingSpot(el.id, el.code, el.timeOccupied, el.address, el.zone, el.tariff, el.penaltyIndex, el.maxTime, el.city, el.locationX, el.locationY));
                 })            
                 
                 this.unsubscriber.next(true);
                 this.unsubscriber.complete();
                 
                 let parkingLocationPoint: HTMLElement;
-                let marker: any;
+                let marker: any;                
                 this.fatchedParkings.forEach( parking => {
                     parkingLocationPoint = document.createElement("div");
                     parkingLocationPoint.classList.add("parking");
+                    let lngLat = new Location(parking.location.lng, parking.location.lat);
+                    
+                    let popup = new mapboxgl.Popup({
+                            closeButton: false,
+                            closeOnClick: false,
+                        })
+                        .addClassName("popup")
+                        .setHTML(`<h2>City: ${parking.city}</h2>Street: ${parking.address}</h3><p class="popupText">Zone: ${parking.zone}</p><p class="popupText">Tariff: ${parking.tariff}</p><p class="popupText">Max time (in seconds): ${parking.maxTime}</p>`)
+                        .setLngLat(lngLat);
+
+                    parkingLocationPoint.addEventListener('mouseenter', () => {
+                        popup.addTo(this.map);
+                    });
+                    parkingLocationPoint.addEventListener('mouseleave', () => {
+                        popup.remove();
+                    });
+
                     marker = new mapboxgl.Marker(parkingLocationPoint)
-                        .setLngLat(parking)
+                        .setLngLat(lngLat)
+                        .setPopup(popup)                        
                         .addTo(this.map);
+
                     this.fatchedParkingsMarkers.push(marker);
                 });
             });        

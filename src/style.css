@@ -52,6 +52,12 @@ p{
     left: 46%;
 }
 
+.popupText{
+    position: relative;
+    left: 0%;
+    color: black;
+}
+
 .footer{
     display: flex;    
     background-color: #696969;
@@ -272,4 +278,18 @@ button{
     border: 1px solid black;
     border-radius: 50%;
     background-color: #89CFF0;
+    cursor: pointer;
+}
+
+.popup{
+    max-width: 300px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.mapboxgl-popup-content {
+    position: relative;
+    background: rgb(88, 125, 206);
+    opacity: 0.8;
+    border-radius: 5px;
 }
