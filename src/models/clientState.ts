@@ -2,7 +2,7 @@ import {environments} from "../environments";
 import { ParkingSpot } from "./ParkingSpot";
 import {getNearbyParkings, fetchPlaces} from "../controller/observable";
 import { Place } from "../models/Place";
-import { Subject } from "rxjs";
+import { from, Subject } from "rxjs";
 import { Location } from "./Location";
 
 let state: clientState = undefined;
@@ -84,16 +84,16 @@ class clientState{
             
             getNearbyParkings().subscribe((list: any)=>{
                 
-                list.forEach( (el:any) => {
-                    this.fatchedParkings.push(new ParkingSpot(el.id, el.code, el.timeOccupied, el.address, el.zone, el.tariff, el.penaltyIndex, el.maxTime, el.city, el.locationX, el.locationY));
-                })            
-                
                 this.unsubscriber.next(true);
                 this.unsubscriber.complete();
-                
+
                 let parkingLocationPoint: HTMLElement;
-                let marker: any;                
-                this.fatchedParkings.forEach( parking => {
+                let marker: any;
+                let parking: ParkingSpot;
+
+                from(list).subscribe((el: any) => {
+                    parking = new ParkingSpot(el.id, el.code, el.timeOccupied, el.address, el.zone, el.tariff, el.penaltyIndex, el.maxTime, el.city, el.locationX, el.locationY);
+                    this.fatchedParkings.push(parking);
                     parkingLocationPoint = document.createElement("div");
                     parkingLocationPoint.classList.add("parking");
                     let lngLat = new Location(parking.location.lng, parking.location.lat);
@@ -120,6 +120,7 @@ class clientState{
 
                     this.fatchedParkingsMarkers.push(marker);
                 });
+                
             });        
 
           });
