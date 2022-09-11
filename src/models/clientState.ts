@@ -17,7 +17,6 @@ class clientState{
     map: any;
     subjectPlaces: Subject<any>;
     userLocation: Location;
-    //fatchedParkings: Location[];
     fatchedParkings: ParkingSpot[];
     fatchedParkingsMarkers: any[];
     unsubscriber: Subject<any>;

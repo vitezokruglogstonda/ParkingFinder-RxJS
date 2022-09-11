@@ -13,6 +13,7 @@ export function checkCode(input: HTMLInputElement){
         switchMap((text:string) => getParkingSpot(text)),
     ).subscribe((output)=>{
         if(output[0].occupied === true){
+            console.log(output[0]);
             let state = createClient();
             state.parked=true;
             state.parkingSpot = new ParkingSpot(output[0].id, output[0].code, output[0].timeOccupied, output[0].address, output[0].zone, output[0].tariff, output[0].penaltyIndex, output[0].maxTime, output[0].city, output[0].locationX, output[0].locationY);
@@ -24,7 +25,7 @@ export function checkCode(input: HTMLInputElement){
 }
 
 function getParkingSpot(code:string):Observable<any>{
-    let url : string = `${environments.URL}/parkings/?code=${code}`;
+    let url : string = `${environments.URL}/parkingSpots/?code=${code}&_expand=garages`;
     return from(    
         fetch(url)
         .then((res) => {
@@ -96,7 +97,7 @@ export function logOut(sub: Subscription){
 
 function freeParking():Observable<Response>{
     let state = createClient();
-    let url : string = `${environments.URL}/parkings/${state.parkingSpot.id}`;
+    let url : string = `${environments.URL}/parkingSpots/${state.parkingSpot.id}`;
     const putRequest: Observable<Response> = from(    
         fetch(url, {
             method: "PUT", 
@@ -144,8 +145,10 @@ export function getNearbyParkings():Observable<any>{
     const obs = from(offset$).pipe(        
         map((offset: number) => calculateCoordinateLimits(offset)),
         switchMap((offset: number[]) => fetchNearbyParkings(offset)),
-        map((list: any) => list.filter((parking: any) => parking.occupied === false)),
-        map((list:any) => list.filter((el: any, index: number) => list.indexOf(list.find((p:any) => p.locationX===el.locationX && p.locationY===el.locationY)) === index )),
+        map((garages: any) => garages.filter((garage: any) => {
+            garage.parkingSpots = garage.parkingSpots.filter((parkingSpot:any) => parkingSpot.occupied===false);
+            return garage.parkingSpots.length >= 0 })
+        ),
         skipWhile((list: any)=> list.length === 0),
         takeUntil(state.unsubscriber),
     ); 
@@ -160,7 +163,7 @@ function calculateCoordinateLimits(offset: number) : number[]{
 }
 
 function fetchNearbyParkings(values: number[]):Observable<any>{
-    let url: string = `${environments.URL}/parkings/?locationX_gte=${values[0]}&locationX_lte=${values[1]}&locationY_gte=${values[2]}&locationY_lte=${values[3]}`;
+    let url: string = `${environments.URL}/garages/?locationX_gte=${values[0]}&locationX_lte=${values[1]}&locationY_gte=${values[2]}&locationY_lte=${values[3]}&_embed=parkingSpots`;
     return from(fetch(url)
         .then(res=> res.json().then( list => {
             return list;        

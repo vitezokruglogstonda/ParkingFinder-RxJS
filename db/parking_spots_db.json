@@ -1,874 +1,4 @@
 {
-  "parkings": [
-    {
-      "id": 1,
-      "code": "bg0101a01",
-      "city": "Belgrade",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.5,
-      "maxTime": 2,
-      "locationX": 20.462955442473742,
-      "locationY": 44.809500251869935,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 2,
-      "code": "bg0101a02",
-      "city": "Belgrade",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.5,
-      "maxTime": 2,
-      "locationX": 20.462955442473742,
-      "locationY": 44.809500251869935,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 3,
-      "code": "bg0101a03",
-      "city": "Belgrade",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.5,
-      "maxTime": 2,
-      "locationX": 20.462955442473742,
-      "locationY": 44.809500251869935,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 4,
-      "code": "bg0101b01",
-      "city": "Belgrade",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.5,
-      "maxTime": 2,
-      "locationX": 20.462955442473742,
-      "locationY": 44.809500251869935,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 5,
-      "code": "bg0101b02",
-      "city": "Belgrade",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.5,
-      "maxTime": 2,
-      "locationX": 20.462955442473742,
-      "locationY": 44.809500251869935,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 6,
-      "code": "bg0101b03",
-      "city": "Belgrade",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.5,
-      "maxTime": 2,
-      "locationX": 20.462955442473742,
-      "locationY": 44.809500251869935,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 7,
-      "code": "bg0102a01",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 8,
-      "code": "bg0102a02",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 9,
-      "code": "bg0102a03",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 10,
-      "code": "bg0102a03",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 11,
-      "code": "bg0102b01",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 12,
-      "code": "bg0102b02",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 13,
-      "code": "bg0102b03",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.2,
-      "maxTime": 6,
-      "locationX": 20.465471610830406,
-      "locationY": 44.803580238694195,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 14,
-      "code": "bg0201a01",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.1,
-      "maxTime": 12,
-      "locationX": 20.460465189567344,
-      "locationY": 44.819297495571675,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 15,
-      "code": "bg0201a02",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.1,
-      "maxTime": 12,
-      "locationX": 20.460465189567344,
-      "locationY": 44.819297495571675,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 16,
-      "code": "bg0201a03",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.1,
-      "maxTime": 12,
-      "locationX": 20.460465189567344,
-      "locationY": 44.819297495571675,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 17,
-      "code": "bg0201b01",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.1,
-      "maxTime": 12,
-      "locationX": 20.460465189567344,
-      "locationY": 44.819297495571675,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 18,
-      "code": "bg0201b02",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.1,
-      "maxTime": 12,
-      "locationX": 20.460465189567344,
-      "locationY": 44.819297495571675,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 19,
-      "code": "bg0201b03",
-      "city": "Belgrade",
-      "zone": 2,
-      "tariff": 1,
-      "penaltyIndex": 1.1,
-      "maxTime": 12,
-      "locationX": 20.460465189567344,
-      "locationY": 44.819297495571675,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 20,
-      "code": "bg0202a01",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 21,
-      "code": "bg0202a02",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 22,
-      "code": "bg0202a03",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 23,
-      "code": "bg0202b01",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 24,
-      "code": "bg0202b02",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 25,
-      "code": "bg0202b03",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 26,
-      "code": "bg0202c01",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 27,
-      "code": "bg0202c02",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 28,
-      "code": "bg0202c03",
-      "city": "Belgrade",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": null,
-      "locationX": 20.458419588586054,
-      "locationY": 44.82398457677343,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 29,
-      "code": "ni0101a01",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 30,
-      "code": "ni0101a02",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 31,
-      "code": "ni0101a03",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 32,
-      "code": "ni0101b01",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 33,
-      "code": "ni0101b02",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 34,
-      "code": "ni0101b03",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 35,
-      "code": "ni0101c01",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 36,
-      "code": "ni0101c02",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 37,
-      "code": "ni0101c03",
-      "city": "Nis",
-      "address": "Sindjelicev trg",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 1.6,
-      "maxTime": 1,
-      "locationX": 21.899658200166385,
-      "locationY": 43.319512399691206,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 38,
-      "code": "ni0102a01",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 39,
-      "code": "ni0102a02",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 40,
-      "code": "ni0102a03",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 41,
-      "code": "ni0102b01",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 42,
-      "code": "ni0102b02",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 43,
-      "code": "ni0102b03",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 44,
-      "code": "ni0102c01",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 45,
-      "code": "ni0102c02",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 46,
-      "code": "ni0102c03",
-      "city": "Nis",
-      "address": "Vojvode Koste Vojinovica",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.886397838389172,
-      "locationY": 43.31461638721984,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 47,
-      "code": "ni0103a01",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 48,
-      "code": "ni0103a02",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 49,
-      "code": "ni0103a03",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 50,
-      "code": "ni0103b01",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 51,
-      "code": "ni0103b02",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 52,
-      "code": "ni0103b03",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 53,
-      "code": "ni0103c01",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 54,
-      "code": "ni0103c02",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 55,
-      "code": "ni0103c03",
-      "city": "Nis",
-      "address": "Prvomajksa",
-      "zone": 2,
-      "tariff": 2,
-      "penaltyIndex": 1.1,
-      "maxTime": 6,
-      "locationX": 21.902721503553465,
-      "locationY": 43.31833559316391,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 56,
-      "code": "ni0201a01",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 57,
-      "code": "ni0201a02",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 58,
-      "code": "ni0201a03",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 59,
-      "code": "ni0201b01",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 60,
-      "code": "ni0201b02",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 61,
-      "code": "ni0201b03",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 62,
-      "code": "ni0201c01",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 63,
-      "code": "ni0201c02",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 3,
-      "tariff": 1,
-      "penaltyIndex": null,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": false,
-      "timeOccupied": null
-    },
-    {
-      "id": 64,
-      "code": "ni0201c03",
-      "city": "Nis",
-      "address": "Pantelejska",
-      "zone": 1,
-      "tariff": 3,
-      "penaltyIndex": 10,
-      "maxTime": 60,
-      "locationX": 21.909277651070767,
-      "locationY": 43.32709764546581,
-      "occupied": true,
-      "timeOccupied": "14:14:00"
-    }
-  ],
   "places": [
     {
       "id": 1,
@@ -877,7 +7,10 @@
         20.453585,
         44.807016
       ],
-      "zoom": 10
+      "zoom": 10,
+      "garagesId":[
+        1, 2, 3, 4
+      ]
     },
     {
       "id": 2,
@@ -886,7 +19,553 @@
         21.896036,
         43.32235
       ],
-      "zoom": 12
+      "zoom": 12,
+      "garagesId":[
+        5, 6, 7, 8
+      ]
+    }
+  ],
+
+  "garages":[
+    {
+      "id": 1,
+      "address": "",
+      "zone": 1,
+      "tariff": 3,
+      "penaltyIndex": 1.5,
+      "maxTime": 2,
+      "locationX": 20.462955442473742,
+      "locationY": 44.809500251869935,
+      "placeId": 1
+    },
+    {
+      "id": 2,
+      "address": "",
+      "zone": 2,
+      "tariff": 1,
+      "penaltyIndex": 1.2,
+      "maxTime": 6,
+      "locationX": 20.465471610830406,
+      "locationY": 44.803580238694195,
+      "placeId": 1
+    },
+    {
+      "id": 3,
+      "address": "",
+      "zone": 2,
+      "tariff": 1,
+      "penaltyIndex": 1.1,
+      "maxTime": 12,
+      "locationX": 20.460465189567344,
+      "locationY": 44.819297495571675,
+      "placeId": 1
+    },
+    {
+      "id": 4,
+      "address": "",
+      "zone": 3,
+      "tariff": 1,
+      "penaltyIndex": null,
+      "maxTime": null,
+      "locationX": 20.458419588586054,
+      "locationY": 44.82398457677343,
+      "placeId": 1
+    },
+    {
+      "id": 5,
+      "address": "Sindjelicev trg",
+      "zone": 1,
+      "tariff": 3,
+      "penaltyIndex": 1.6,
+      "maxTime": 1,
+      "locationX": 21.899658200166385,
+      "locationY": 43.319512399691206,
+      "placeId": 2
+    },
+    {
+      "id": 6,
+      "address": "Vojvode Koste Vojinovica",
+      "zone": 2,
+      "tariff": 2,
+      "penaltyIndex": 1.1,
+      "maxTime": 6,
+      "locationX": 21.886397838389172,
+      "locationY": 43.31461638721984,
+      "placeId": 2
+    },
+    {
+      "id": 7,
+      "address": "Prvomajksa",
+      "zone": 2,
+      "tariff": 2,
+      "penaltyIndex": 1.1,
+      "maxTime": 6,
+      "locationX": 21.902721503553465,
+      "locationY": 43.31833559316391,
+      "placeId": 2
+    },
+    {
+      "id": 8,
+      "address": "Pantelejska",
+      "zone": 3,
+      "tariff": 1,
+      "penaltyIndex": null,
+      "maxTime": 60,
+      "locationX": 21.909277651070767,
+      "locationY": 43.32709764546581,
+      "placeId": 2
+    }
+  ],
+
+  "parkingSpots": [
+    {
+      "id": 1,
+      "code": "bg0101a01",
+      "occupied": true,
+      "timeOccupied": null,
+      "garagesId": 1
+    },
+    {
+      "id": 2,
+      "code": "bg0101a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 1
+    },
+    {
+      "id": 3,
+      "code": "bg0101a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 1
+    },
+    {
+      "id": 4,
+      "code": "bg0101b01",      
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 1
+    },
+    {
+      "id": 5,
+      "code": "bg0101b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 1
+    },
+    {
+      "id": 6,
+      "code": "bg0101b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 1
+    },
+    {
+      "id": 7,
+      "code": "bg0102a01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 8,
+      "code": "bg0102a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 9,
+      "code": "bg0102a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 10,
+      "code": "bg0102a04",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 11,
+      "code": "bg0102b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 12,
+      "code": "bg0102b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 13,
+      "code": "bg0102b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 2
+    },
+    {
+      "id": 14,
+      "code": "bg0201a01",      
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 3
+    },
+    {
+      "id": 15,
+      "code": "bg0201a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 3
+    },
+    {
+      "id": 16,
+      "code": "bg0201a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 3
+    },
+    {
+      "id": 17,
+      "code": "bg0201b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 3
+    },
+    {
+      "id": 18,
+      "code": "bg0201b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 3
+    },
+    {
+      "id": 19,
+      "code": "bg0201b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 3
+    },
+    {
+      "id": 20,
+      "code": "bg0202a01",      
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 21,
+      "code": "bg0202a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 22,
+      "code": "bg0202a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 23,
+      "code": "bg0202b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 24,
+      "code": "bg0202b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 25,
+      "code": "bg0202b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 26,
+      "code": "bg0202c01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 27,
+      "code": "bg0202c02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 28,
+      "code": "bg0202c03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 4
+    },
+    {
+      "id": 29,
+      "code": "ni0101a01",      
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 30,
+      "code": "ni0101a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 31,
+      "code": "ni0101a03",      
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 32,
+      "code": "ni0101b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 33,
+      "code": "ni0101b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 34,
+      "code": "ni0101b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 35,
+      "code": "ni0101c01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 36,
+      "code": "ni0101c02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 37,
+      "code": "ni0101c03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 5
+    },
+    {
+      "id": 38,
+      "code": "ni0102a01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 39,
+      "code": "ni0102a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 40,
+      "code": "ni0102a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 41,
+      "code": "ni0102b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 42,
+      "code": "ni0102b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 43,
+      "code": "ni0102b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 44,
+      "code": "ni0102c01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 45,
+      "code": "ni0102c02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 46,
+      "code": "ni0102c03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 6
+    },
+    {
+      "id": 47,
+      "code": "ni0103a01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 48,
+      "code": "ni0103a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 49,
+      "code": "ni0103a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 50,
+      "code": "ni0103b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 51,
+      "code": "ni0103b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 52,
+      "code": "ni0103b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 53,
+      "code": "ni0103c01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 54,
+      "code": "ni0103c02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 55,
+      "code": "ni0103c03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 7
+    },
+    {
+      "id": 56,
+      "code": "ni0201a01",      
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 57,
+      "code": "ni0201a02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 58,
+      "code": "ni0201a03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 59,
+      "code": "ni0201b01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 60,
+      "code": "ni0201b02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 61,
+      "code": "ni0201b03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 62,
+      "code": "ni0201c01",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 63,
+      "code": "ni0201c02",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
+    },
+    {
+      "id": 64,
+      "code": "ni0201c03",
+      "occupied": false,
+      "timeOccupied": null,
+      "garagesId": 8
     }
   ]
+  
 }
