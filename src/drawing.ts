@@ -100,7 +100,7 @@ function drawWaiterContent(){
                 drawFinderContent();
             }
         }
-    ,1000);    
+    ,environments.waitTime);    
 }
 
 function drawFinderContent(){

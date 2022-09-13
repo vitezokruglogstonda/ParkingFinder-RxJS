@@ -1,25 +1,26 @@
 import {environments} from "../environments";
-import { ParkingSpot } from "./ParkingSpot";
+import { IParkingSpot } from "./IParkingSpot";
 import {getNearbyParkings, fetchPlaces} from "../controller/observable";
-import { Place } from "../models/Place";
 import { from, Subject } from "rxjs";
-import { Location } from "./Location";
+import { ILocation } from "./ILocation";
+import { INearbyGarage, IPlace } from "./IResponse";
+import { Map, Marker } from "mapbox-gl";
 
 let state: clientState = undefined;
 
 class clientState{
     currentTab: string;
     parked:boolean;
-    parkingSpot: ParkingSpot;
+    parkingSpot: IParkingSpot;
     price: number;
-    placesList: Place[];
+    placesList: IPlace[];
     selectedPlace: string;
-    map: any;
-    subjectPlaces: Subject<any>;
-    userLocation: Location;
-    fatchedParkings: ParkingSpot[];
-    fatchedParkingsMarkers: any[];
-    unsubscriber: Subject<any>;
+    map: Map;
+    subjectPlaces: Subject<number>;
+    userLocation: ILocation;
+    fatchedParkings: INearbyGarage[];
+    fatchedParkingsMarkers: Marker[];
+    unsubscriber: Subject<boolean>;
 
     constructor(currTab:string){
         this.currentTab = currTab;
@@ -28,24 +29,24 @@ class clientState{
         this.placesList = [];
         this.selectedPlace = null;
         this.map = null;
-        this.subjectPlaces = new Subject<any>();
+        this.subjectPlaces = new Subject<number>();
         this.userLocation = null;
         this.fatchedParkings = [];
         this.fatchedParkingsMarkers = [];
-        this.unsubscriber = new Subject<any>();
+        this.unsubscriber = new Subject<boolean>();
     }
 
     getPlaces(): string[]{
         if(this.placesList.length === 0){
-            fetchPlaces().subscribe((list: any) => {
-                list.forEach((el:Place)=>{
+            fetchPlaces().then((list: Array<IPlace>) => {
+                list.forEach((el:IPlace)=>{
                     this.placesList.push(el);
                 });
                 state.subjectPlaces.next(1);
                 state.subjectPlaces.complete();
             });
         }
-        let placeNames: string[] = this.placesList.map( (place: Place) =>  {return place.name;} );
+        let placeNames: string[] = this.placesList.map( (place: IPlace) =>  {return place.name;} );
         return placeNames;
     }
     
@@ -58,12 +59,12 @@ class clientState{
         });
         this.map.addControl(new mapboxgl.NavigationControl());
                 
-        this.map.on('click', (e: any) => {
+        this.map.on('click', (e) => {
             let userLocationPoint: HTMLElement = document.getElementById("marker");
             if(userLocationPoint === null){
                 userLocationPoint = document.createElement('div');
                 userLocationPoint.setAttribute("id","marker");
-                this.userLocation = new Location();
+                //this.userLocation = new Location();
             }else{
                 new mapboxgl.Marker(userLocationPoint)
                     .remove(this.map);
@@ -73,36 +74,39 @@ class clientState{
                 this.fatchedParkingsMarkers.splice(0, this.fatchedParkingsMarkers.length);
                 this.fatchedParkings.splice(0, this.fatchedParkings.length);
             }
-            this.userLocation.lng = e.lngLat.lng;
-            this.userLocation.lat = e.lngLat.lat;
+            this.userLocation = {
+                lng: e.lngLat.lng,
+                lat: e.lngLat.lat
+            }
             new mapboxgl.Marker(userLocationPoint)
                 .setLngLat(this.userLocation)
                 .addTo(this.map);
                         
-            console.log(this.userLocation);
+            console.log("Selected user location: ", this.userLocation);
             
-            getNearbyParkings().subscribe((list: any)=>{
-                
+            getNearbyParkings().subscribe((list: INearbyGarage[])=>{
                 this.unsubscriber.next(true);
                 this.unsubscriber.complete();
 
                 let parkingLocationPoint: HTMLElement;
-                let marker: any;
-                let parking: ParkingSpot;
+                let marker: Marker;
 
-                from(list).subscribe((el: any) => {
-                    parking = new ParkingSpot(el.id, el.code, el.timeOccupied, el.address, el.zone, el.tariff, el.penaltyIndex, el.maxTime, el.city, el.locationX, el.locationY);
-                    this.fatchedParkings.push(parking);
+                from(list).subscribe((el: INearbyGarage) => {
+                    
+                    this.fatchedParkings.push(el);
                     parkingLocationPoint = document.createElement("div");
                     parkingLocationPoint.classList.add("parking");
-                    let lngLat = new Location(parking.location.lng, parking.location.lat);
+                    let lngLat = {
+                        lng: el.locationX, 
+                        lat: el.locationY
+                    };
                     
                     let popup = new mapboxgl.Popup({
                             closeButton: false,
                             closeOnClick: false,
                         })
                         .addClassName("popup")
-                        .setHTML(`<h2>City: ${parking.city}</h2>Street: ${parking.address}</h3><p class="popupText">Zone: ${parking.zone}</p><p class="popupText">Tariff: ${parking.tariff}</p><p class="popupText">Max time (in seconds): ${parking.maxTime}</p>`)
+                        .setHTML(`<h3>Street: ${el.address}</h3><p class="popupText">Zone: ${el.zone}</p><p class="popupText">Tariff: ${el.tariff}</p><p class="popupText">Max time (in seconds): ${el.maxTime}</p>`)
                         .setLngLat(lngLat);
 
                     parkingLocationPoint.addEventListener('mouseenter', () => {
@@ -132,7 +136,7 @@ class clientState{
     }
 
     showPlaceOnMap(){
-        let currentPlace: Place = this.placesList.find( obj => {return obj.name === this.selectedPlace;});
+        let currentPlace: IPlace = this.placesList.find( obj => {return obj.name === this.selectedPlace;});
         
         this.map.flyTo({
             center: currentPlace.center,

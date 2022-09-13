@@ -16,4 +16,9 @@ export const environments = {
     mapLink: "https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css",
     mapToken: "pk.eyJ1IjoiYW5kMXJpamEiLCJhIjoiY2w2bmxxNnA5MDIyazNpbXR2MTE5ZG0zbCJ9.TSyRXbo87WwCHPRC0EmVag",
     offsets: [0.001, 0.002, 0.003, 0.004, 0.005, 0.01],
+    waitTime: 1000,
+    checkCodeDelay: 500,
+    secondsInHour: 360,
+    secondsInMinutes: 60,
+    roundFactor: 100,
 };

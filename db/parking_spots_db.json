@@ -33,7 +33,7 @@
       "zone": 1,
       "tariff": 3,
       "penaltyIndex": 1.5,
-      "maxTime": 2,
+      "maxTime": 60,
       "locationX": 20.462955442473742,
       "locationY": 44.809500251869935,
       "placeId": 1
@@ -122,7 +122,7 @@
       "id": 1,
       "code": "bg0101a01",
       "occupied": true,
-      "timeOccupied": null,
+      "timeOccupied": "16:34:00",
       "garagesId": 1
     },
     {
@@ -562,8 +562,8 @@
     {
       "id": 64,
       "code": "ni0201c03",
-      "occupied": false,
-      "timeOccupied": null,
+      "occupied": true,
+      "timeOccupied": "16:07:00",
       "garagesId": 8
     }
   ]
