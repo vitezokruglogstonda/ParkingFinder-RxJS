@@ -1,8 +1,8 @@
-import {debounceTime, every, filter, forkJoin, from, fromEvent, interval, map, Observable, Observer, reduce, single, skipWhile, startWith, Subject, Subscription, switchMap, take, takeUntil, takeWhile} from "rxjs";
+import {debounceTime, every, filter, forkJoin, from, fromEvent, interval, map, observable, Observable, Observer, reduce, single, skipWhile, startWith, Subject, Subscription, switchMap, take, takeUntil, takeWhile, zip} from "rxjs";
 import { IParkingSpot } from "../models/IParkingSpot";
 import {environments} from "../environments";
 import { createClient } from "../models/clientState";
-import { drawCheckerContent, showCurrentState } from "../drawing";
+import { drawCheckerContent, showCurrentStateCombOp } from "../drawing";
 import { INearbyGarage, INearbyParkingSpot, IParkingSpotResponse, IPlace } from "../models/IResponse";
 import {ILocation} from "../models/ILocation";
 
@@ -64,13 +64,43 @@ function getParkingSpot(code:string):Promise<IParkingSpotResponse>{
 
 export function calculate(): Subscription{
     let state = createClient();
-    let durS : number = calculateDurationInSeconds();    
-    const sub = interval(environments.waitTime).pipe(
+    state.durS = calculateDurationInSeconds();   
+    let clock: number = environments.waitTime;
+    state.durS_trigger = new Subject<[string, number]>();    
+    const time = interval(clock).pipe(
         map( (x) => {
-            return calculateTimeAndPrice(durS,x);
+            return calculateTime();
         })
-    ).subscribe((res: [string, string, number,boolean])=>{showCurrentState(res)});
+    );
+    const sub = zip(time, state.durS_trigger).subscribe((res: [string, [string, number]])=>{showCurrentStateCombOp(res)});
     return sub;
+}
+
+
+function calculateTime(): string{
+    let state = createClient();
+    let res : string = undefined;    
+    state.durS++;
+    if(state.parkingSpot.maxTime < state.durS){
+        state.timeExceeded = true;
+    }
+    res = `${Math.floor(state.durS/environments.secondsInHour)}:${Math.floor((state.durS%environments.secondsInHour)/environments.secondsInMinutes)}:${(state.durS%environments.secondsInHour)%environments.secondsInMinutes}`;                
+    state.durS_trigger.next(calculatePrice());
+    return res;
+}
+
+function calculatePrice():[string, number]{
+    let state = createClient();
+    let res: [string, number] = ["", 0];
+    let index:number = state.parkingSpot.tariff;    
+    if(state.parkingSpot.zone<3 && state.timeExceeded){
+        index *= state.parkingSpot.penaltyIndex;
+    }else{
+        let remainingTime = state.parkingSpot.maxTime - state.durS
+        res[0] = `${Math.floor(remainingTime/environments.secondsInHour)}:${Math.floor((remainingTime%environments.secondsInHour)/environments.secondsInMinutes)}:${(remainingTime%environments.secondsInHour)%environments.secondsInMinutes}`;
+    }
+    res[1] = Math.round(environments.pricePerSecond * index * state.durS * environments.roundFactor) / environments.roundFactor; 
+    return res;
 }
 
 function calculateDurationInSeconds(): number{
@@ -81,30 +111,6 @@ function calculateDurationInSeconds(): number{
     let tmpS: number = tmpDate.getSeconds() + tmpH + tmpM;
     let timeOccupiedSplited : string[] = state.parkingSpot.timeOccupied.split(":",3);
     return tmpS - (parseInt(timeOccupiedSplited[0])*environments.secondsInHour + parseInt(timeOccupiedSplited[1])*environments.secondsInMinutes + parseInt(timeOccupiedSplited[2])) - 1;
-}
-
-function calculateTimeAndPrice(durS: number, x: number): [string, string, number, boolean]{
-    let state = createClient();
-    let res : [string, string, number, boolean] = ["","",0,false];
-    let penalty: boolean = false;
-    durS+=x;
-    res[0] = `${Math.floor(durS/environments.secondsInHour)}:${Math.floor((durS%environments.secondsInHour)/environments.secondsInMinutes)}:${(durS%environments.secondsInHour)%environments.secondsInMinutes}`;                
-    let index:number = state.parkingSpot.tariff;
-    //za maxTime u satima
-    // if(state.parkingSpot.zone<3 && state.parkingSpot.maxTime*360 > durS){
-    //     index *= state.parkingSpot.penaltyIndex;
-    //     penalty = true;
-    // } 
-    if(state.parkingSpot.zone<3 && state.parkingSpot.maxTime < durS){
-        index *= state.parkingSpot.penaltyIndex;
-        penalty = true;
-    }else{
-        let remainingTime = state.parkingSpot.maxTime - durS
-        res[1] = `${Math.floor(remainingTime/environments.secondsInHour)}:${Math.floor((remainingTime%environments.secondsInHour)/environments.secondsInMinutes)}:${(remainingTime%environments.secondsInHour)%environments.secondsInMinutes}`;
-    }
-    res[2] = Math.round(environments.pricePerSecond * index * durS * environments.roundFactor) / environments.roundFactor; 
-    res[3] = penalty;
-    return res;
 }
 
 export function logOut(sub: Subscription){

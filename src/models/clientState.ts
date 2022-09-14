@@ -21,6 +21,9 @@ class clientState{
     fatchedParkings: INearbyGarage[];
     fatchedParkingsMarkers: Marker[];
     unsubscriber: Subject<boolean>;
+    durS: number;
+    timeExceeded: boolean;
+    durS_trigger: Subject<[string, number]>;
 
     constructor(currTab:string){
         this.currentTab = currTab;
@@ -34,6 +37,9 @@ class clientState{
         this.fatchedParkings = [];
         this.fatchedParkingsMarkers = [];
         this.unsubscriber = new Subject<boolean>();
+        this.durS = 0;
+        this.timeExceeded = false;
+        this.durS_trigger = null;
     }
 
     getPlaces(): string[]{

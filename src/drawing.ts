@@ -211,19 +211,20 @@ export function drawCheckerContent(){
     }
 }
 
-export function showCurrentState(output: [string, string, number, boolean]){
+export function showCurrentStateCombOp(output: [string, [string, number]]){
+    console.log("output: ", output);
     let duration = output[0];
-    state.price = output[2];
+    state.price = output[1][1];
     let labelTime : HTMLElement= document.getElementById("timeSpentLabel");
     let labelPrice : HTMLElement= document.getElementById("priceLabel");
     let labelRemainingTime : HTMLElement= document.getElementById("remainingTimeLabel");
-    if(output[3]){
+    if(state.timeExceeded){
         labelTime.classList.add("infoLabelPenalty");
         labelPrice.classList.add("infoLabelPenalty");
         labelRemainingTime.innerHTML = `${environments.labelRemainingTimePenaltyString}`;
         labelRemainingTime.classList.add("infoLabelPenalty");
     }else{
-        labelRemainingTime.innerHTML = `${environments.labelRemainingTimeString}${output[1]}`;
+        labelRemainingTime.innerHTML = `${environments.labelRemainingTimeString}${output[1][0]}`;
     }
     labelTime.innerHTML = `${environments.labelTimeString}${duration}`;
     labelPrice.innerHTML = `${environments.labelPriceString}${state.price} ${environments.currency}`;
